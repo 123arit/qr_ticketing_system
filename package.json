@@ -1,0 +1,21 @@
+{
+  "name": "qr-ticket-app",
+  "version": "1.0.0",
+  "description": "qr ticket generator for gdl bengali community",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Aritra Chakraborty",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security",
+    "html-pdf": "^3.0.1",
+    "mysql": "^2.18.1",
+    "qrcode": "^1.5.0"
+  }
+}

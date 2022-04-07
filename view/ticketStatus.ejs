@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noboborsho Ticket Generator/Validator GDL 2022</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css" type="text/css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Check Ticket Status Check/Update</h1>
+        <h1 style="color: red">শুভ নববর্ষ ১৪২৯ (April 2022)</h1>
+            <p><b>Place</b>: Terraza del Angel, 2032 Calle Volcan Cofre de Perote, Zapopan, JAL 45070, Mexico</p>
+            <p><b>Time</b>: 12:00 PM to 5:00 PM (CDT)</p>
+            <p><b>Ticket No</b>: <%= ticketNo%></p>
+        <hr>
+        <% var entry, breakfast, lunch;%>
+        <% if(entryStatus== 0){ entry="Not-Done"}else{ entry="Done"}%>
+        <% if(brkfstStatus== 0){ breakfast="Not-Done"}else{ breakfast="Done"}%>
+        <% if(lunchStatus== 0){ lunch="Not-Done"}else{ lunch="Done"}%>
+
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">Status Type</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Change Status</th>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col">Entry</th>
+                  <th scope="col"><%= entry%></th>
+                  <th scope="col"><form action="/updateEntry" method="POST" class="form">
+                    <!-- <label>Entry Status: <%= entry%></label> -->
+                    <input type="hidden" class="form-control" name="entry" id="entry" value="<%= entryStatus%>" required><br>
+                    <input type="hidden" value="entry" id="entryType" name="entryType">
+                    <input type="hidden" value="<%= ticketNo%>" id="ticketNo" name="ticketNo">
+                    <button type="submit" class="btn btn-lg btn-primary">Reverse Status</button>
+                </form></th>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col">Breakfast</th>
+                  <th scope="col"><%= breakfast%></th>
+                  <th scope="col"><form action="/updateEntry" method="POST" class="form">
+                    <!-- <label>Breakfast Status: <%= breakfast%></label> -->
+                    <input type="hidden" class="form-control" name="breakfast" id="breakfast" value="<%= brkfstStatus%>" required><br>
+                    <input type="hidden" value="breakfast" id="entryType" name="entryType">
+                    <input type="hidden" value="<%= ticketNo%>" id="ticketNo" name="ticketNo">
+                    <button type="submit" class="btn btn-lg btn-primary">Reverse Status</button>
+                </form></th>
+                </tr>
+              </thead>
+              <thead>
+                <tr>
+                  <th scope="col">Lunch</th>
+                  <th scope="col"><%= lunch%></th>
+                  <th scope="col"><form action="/updateEntry" method="POST" class="form">
+                    <!-- <label>Lunch Status: <%= lunch%></label> -->
+                    <input type="hidden" class="form-control" name="lunch" id="lunch" value="<%= lunchStatus%>" required><br>
+                    <input type="hidden" value="lunch" id="entryType" name="entryType">
+                    <input type="hidden" value="<%= ticketNo%>" id="ticketNo" name="ticketNo">           
+                    <button type="submit" class="btn btn-lg btn-primary">Reverse Status</button>
+                </form></th>
+                </tr>
+              </thead>
+        </table>
+
+
+        
+        <hr><br>
+        <a class="btn btn-success" href="/scanner">Check/Update Another Ticket Status</a>
+        <a class="btn btn-info" href="/">Goto Home</a>
+
+    </div>
+</body>
+
+</html>

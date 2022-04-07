@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noboborsho Ticket Generator/Validator GDL 2022</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div id="ticket_body">
+            <h1 style="color: red">শুভ নববর্ষ ১৪২৯ (April 2022)</h1>
+            <p><b>Place</b>: Terraza del Angel, 2032 Calle Volcan Cofre de Perote, Zapopan, JAL 45070, Mexico</p>
+            <p><b>Time</b>: 12:00 PM to 5:00 PM (CDT)</p>
+            <p><b>Ticket No</b>: <%= ticketNo%></p>
+            <p><b>Ticket for</b>: <%= fname%> <%= lname%></p>
+            <p><b>Email</b>: <%= email%></p>
+            <img src=<%=qr_code %> alt="QR Code">
+        </div>
+        
+        <br>
+        
+        <form action="/download" method="POST" class="form">
+            <input type="hidden" name="fname" id="fname" value="<%= fname%>">
+            <input type="hidden" name="lname" id="lname" value="<%= lname%>">
+            <input type="hidden" name="email" id="email" value="<%= email%>">
+            <input type="hidden" name="ticketNo" id="ticketNo" value="<%= ticketNo%>">
+            <input type="hidden" name="qr_code" id="qr_code" value="<%= qr_code%>">
+            <input class="btn btn-primary" type="submit" value="Download">
+        </form><br>
+        <a class="btn btn-info" href="/">Goto Home</a>
+        <!-- <button onclick="download(fname, lname, email, qr_code)" role="button" class="btn btn-primary">Download</button> -->
+    </div>
+</body>
+
+
+</html>
